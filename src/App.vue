@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div id="app">
     <div>
       <video-card
         v-for="video in videoList"
@@ -48,14 +48,19 @@
     --greyish-brown: #4a4a4a;
 
   }
-
-  .app {
+  #app {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap-reverse;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 1199px){
+    #app{
+      justify-content: center;
+    }
   }
 </style>
 <script>
@@ -73,19 +78,25 @@
             name: 'DESIGNATED SURVIVOR',
             image: 'https://picsum.photos/500/400',
             publishedAt: '2m ago',
+            released:'2017',
+            genders:'TV Shows',
+            available:'13+',
+            season:'1 season',
             user: {
-              name: 'Shkodran Arifi',
-              //...
+              name: 'Shkodran Arifi'
             }
           },
           {
             id: '2',
-            name: 'asdsadasd',
+            name: 'NARCOS',
             image: 'https://picsum.photos/500/400',
             publishedAt: '5m ago',
+            released:'2013',
+            genders:'TV Series',
+            available:'3+',
+            season:'4 season',
             user: {
-              name: 'Shkodran asdasdasdsad',
-              //...
+              name: 'Jane Brewer'
             }
           },
 

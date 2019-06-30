@@ -13,6 +13,8 @@
     border-radius: 3px;
     background: none;
     outline: none;
+    font-size: 18px;
+    color: var(--salmon);
     border: solid 1px var(--salmon);
     text-transform: capitalize;
   }

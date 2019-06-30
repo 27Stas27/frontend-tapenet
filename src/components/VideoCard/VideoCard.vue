@@ -5,22 +5,35 @@
         <base-avatar class="video-card__avatar"/>
         <p>{{video.user.name}}</p>
       </div>
-      <h6>2m ago</h6>
+      <h6>{{video.publishedAt}}</h6>
     </div>
     <video-gif :image="video.image" alt="mountain"/>
     <div class="video-card__bottom">
       <div class="video-card__bottom_title">
-        <p>DESIGNATED SURVIVOR</p>
+        <p>{{video.name}}</p>
       </div>
       <div class="video-card__bottom_info">
         <div>
-          <p>Year: <span class="video-card__bottom_year">2017</span></p>
-          <p>Genders: TV Shows </p>
+          <p>Year: <span class="video-card__bottom_year">{{video.released}}</span></p>
+          <p>Genders: {{video.genders}} </p>
         </div>
         <div>
-          <p><span class="video-card__bottom_age">13+</span></p>
-          <p>1 Season</p>
+          <p><span class="video-card__bottom_age">{{video.available}}</span></p>
+          <p>{{video.season}}</p>
         </div>
+      </div>
+    </div>
+    <div class="video-card__comment">
+      <div>
+        <p>Add a comment</p>
+      </div>
+      <div class="video-card__comment_links">
+        <a href="#">
+          <img src="../../assets/images/2.svg" alt="heart">
+        </a>
+        <a href="#">
+          <img src="../../assets/images/1.svg" alt="share">
+        </a>
       </div>
     </div>
   </base-card>
@@ -51,6 +64,7 @@
     width: 100%;
     padding: 25px 35px 35px 35px;
     box-sizing: border-box;
+    margin-bottom: 50px;
 
     &__avatar {
       width: 54px;
@@ -96,15 +110,15 @@
     }
 
     &__bottom {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
       padding: 26px 0 20px 0;
       border-bottom: solid 1px #dbdee3;
 
       &_title {
-        width: 60%;
+        width: 50%;
 
         p {
           font-family: Roboto;
@@ -124,12 +138,14 @@
       }
 
       &_age {
+        text-align: center;
         width: 35px;
         display: inline-block;
         border: solid 1px var(--warm-grey);
       }
 
       &_info {
+        width: 50%;
         display: flex;
         text-align: right;
         align-items: center;
@@ -151,6 +167,24 @@
           padding: 10px 0;
           letter-spacing: 0.94px;
           color: var(--warm-grey);
+        }
+      }
+    }
+    &__comment{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+      padding-top: 23px;
+      p{
+        margin: 0;
+      }
+      &_links{
+        a{
+          padding-right: 10px;
+        }
+        a:last-child{
+          padding-right: 0;
         }
       }
     }

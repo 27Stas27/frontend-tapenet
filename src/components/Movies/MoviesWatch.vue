@@ -34,7 +34,7 @@ export default {
   .movies-watch{
     padding: 41px 60px 60px 41px;
     box-sizing: border-box;
-    margin-top: 30px;
+    margin: 30px 0;
     ul{
       padding-left: 0;
       list-style: none;
