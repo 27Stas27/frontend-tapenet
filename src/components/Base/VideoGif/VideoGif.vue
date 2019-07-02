@@ -6,7 +6,7 @@
     >
     <span class="video-gif__plashka">
         <img
-          src="../../assets/images/gif.svg"
+          src="../../../assets/images/gif.svg"
           alt="gif">
       </span>
   </div>

@@ -1,0 +1,68 @@
+<template>
+  <div class="base-nav-fon">
+    <div class="base-nav">
+      <ul class="base-nav__list">
+        <li>
+          <a class="base-nav__list__link" href="#">
+            Friends
+          </a>
+        </li>
+        <li>
+          <a class="base-nav__list__link" href="#">
+            Discover
+          </a>
+        </li>
+        <li>
+          <a class="base-nav__list__link" href="#">
+            Hot!
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'BaseNav'
+  }
+</script>
+
+<style lang="scss">
+  .base-nav-fon {
+    background-image: linear-gradient(to left, #ff7eac, #ff8376);
+  }
+
+  .base-nav {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto 50px auto;
+    padding: 21px 0;
+
+    &__list {
+      padding: 0;
+      margin: 0 auto;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 450px;
+
+      &__link {
+        font-family: Roboto;
+        font-size: 24px;
+        letter-spacing: 0px;
+        color: #ffffff;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-bottom .7s;
+      }
+
+      &__link:hover {
+        font-weight: bolder;
+        border-bottom: 1px solid #fff;
+      }
+    }
+  }
+</style>

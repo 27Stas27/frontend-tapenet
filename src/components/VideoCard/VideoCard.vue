@@ -40,9 +40,9 @@
 </template>
 
 <script>
-  import BaseCard from '../Card/BaseCard'
-  import VideoGif from "../VideoGif/VideoGif";
-  import BaseAvatar from "../Avatar/BaseAvatar";
+  import BaseCard from '../Base/Card/BaseCard'
+  import VideoGif from "../Base/VideoGif/VideoGif";
+  import BaseAvatar from "../Base/Avatar/BaseAvatar";
 
   export default {
     name: "VideoCard",
@@ -101,7 +101,7 @@
           font-family: Roboto;
           font-size: 24px;
           letter-spacing: 0px;
-          color: #000000;
+          color: var(--black);
           padding-left: 20px;
           margin: 5px 0;
           text-transform: capitalize;
@@ -170,20 +170,28 @@
         }
       }
     }
-    &__comment{
+
+    &__comment {
       display: flex;
       justify-content: space-between;
       width: 100%;
       align-items: center;
       padding-top: 23px;
-      p{
+
+      p {
         margin: 0;
+        font-family: Roboto;
+        font-size: 15px;
+        letter-spacing: 0.94px;
+        color: var(--warm-grey);
       }
-      &_links{
-        a{
+
+      &_links {
+        a {
           padding-right: 10px;
         }
-        a:last-child{
+
+        a:last-child {
           padding-right: 0;
         }
       }

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import BaseCard from "../Card/BaseCard";
+import BaseCard from "../Base/Card/BaseCard";
 export default {
   name: 'MoviesWatch',
   components: {BaseCard}

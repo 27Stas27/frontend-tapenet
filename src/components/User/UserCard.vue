@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import BaseAvatar from '../Avatar/BaseAvatar'
-import BaseButton from '../BaseButton/BaseButton'
-import BaseCard from '../Card/BaseCard'
+import BaseAvatar from '../Base/Avatar/BaseAvatar'
+import BaseButton from '../Base/BaseButton/BaseButton'
+import BaseCard from '../Base/Card/BaseCard'
 export default {
   name: 'UserCard',
   components: { BaseCard, BaseButton, BaseAvatar }
