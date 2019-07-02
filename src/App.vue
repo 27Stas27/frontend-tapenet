@@ -17,6 +17,7 @@
         </div>
       </section>
     </div>
+    <base-footer/>
   </div>
 </template>
 
@@ -85,16 +86,18 @@
   }
 
   .main-fon-page {
+    background: #f7f8fa;
+    padding-top: 50px;
+  }
+
+  /*#app {*/
+
+  /*}*/
+
+  .friends-page__body {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-  }
-
-  #app {
-    background: #f7f8fa;
-  }
-
-  .friends-page__body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap-reverse;
@@ -112,9 +115,10 @@
   import VideoCard from './components/VideoCard/VideoCard'
   import BaseHeader from './components/Base/BaseHeader/BaseHeader'
   import BaseNav from './components/Base/BaseHeader/BaseNav'
+  import BaseFooter from './components/Base/BaseFooter/BaseFooter'
 
   export default {
-    components: { BaseNav, BaseHeader, VideoCard, MoviesWatch, UserCard },
+    components: { BaseFooter, BaseNav, BaseHeader, VideoCard, MoviesWatch, UserCard },
     data () {
       return {
         videoList: [

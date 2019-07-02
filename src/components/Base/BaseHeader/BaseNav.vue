@@ -36,7 +36,7 @@
   .base-nav {
     max-width: 1200px;
     width: 100%;
-    margin: 0 auto 50px auto;
+    margin: 0 auto;
     padding: 21px 0;
 
     &__list {

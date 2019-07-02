@@ -110,15 +110,17 @@
     }
 
     &__bottom {
-      width: 100%;
       display: flex;
       align-items: center;
+      flex: 1;
       justify-content: space-between;
+      flex-wrap: wrap;
       padding: 26px 0 20px 0;
       border-bottom: solid 1px #dbdee3;
 
       &_title {
-        width: 50%;
+        flex: 1;
+        display: flex;
 
         p {
           font-family: Roboto;
@@ -145,7 +147,6 @@
       }
 
       &_info {
-        width: 50%;
         display: flex;
         text-align: right;
         align-items: center;

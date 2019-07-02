@@ -1,37 +1,37 @@
 <template>
   <div class="base-header-fon">
-  <div class="base-header">
-    <div class="base-header__logo">
-      <p>tape</p>
+    <div class="base-header">
+      <div class="base-header__logo">
+        <p>tape</p>
+      </div>
+      <div class="base-header__search">
+        <input class="base-header__search__input" type="text"  placeholder="Search for titles, people, genres ">
+      </div>
+      <div class="base-header__nav">
+        <ul>
+          <li>
+            <a class="base-header__nav__link" href="#">
+              Home
+            </a>
+          </li>
+          <li>
+            <a class="base-header__nav__link" href="#">
+              Feed
+            </a>
+          </li>
+          <li>
+            <a class="base-header__nav__link" href="#">
+              <font-awesome-icon :icon="['far', 'bell']"/>
+            </a>
+          </li>
+          <li>
+            <a class="base-header__nav__link" href="#">
+              <base-avatar/>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="base-header__search">
-      <input class="base-header__search__input" type="text"  placeholder="Search for titles, people, genres ">
-    </div>
-    <div class="base-header__nav">
-      <ul>
-        <li>
-          <a class="base-header__nav__link" href="#">
-            Home
-          </a>
-        </li>
-        <li>
-          <a class="base-header__nav__link" href="#">
-            Feed
-          </a>
-        </li>
-        <li>
-          <a class="base-header__nav__link" href="#">
-            <font-awesome-icon :icon="['far', 'bell']"/>
-          </a>
-        </li>
-        <li>
-          <a class="base-header__nav__link" href="#">
-            <base-avatar/>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
   </div>
 </template>
 
