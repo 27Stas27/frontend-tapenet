@@ -1,42 +1,41 @@
 <template>
-  <div class="base-header-fon">
-    <div class="base-header">
-      <div class="base-header__logo">
-        <p>tape</p>
-      </div>
-      <div class="base-header__search">
-        <input class="base-header__search__input" type="text"  placeholder="Search for titles, people, genres ">
-      </div>
-      <div class="base-header__nav">
-        <ul>
-          <li>
-            <a class="base-header__nav__link" href="#">
-              Home
-            </a>
-          </li>
-          <li>
-            <a class="base-header__nav__link" href="#">
-              Feed
-            </a>
-          </li>
-          <li>
-            <a class="base-header__nav__link" href="#">
-              <font-awesome-icon :icon="['far', 'bell']"/>
-            </a>
-          </li>
-          <li>
-            <a class="base-header__nav__link" href="#">
-              <base-avatar/>
-            </a>
-          </li>
-        </ul>
-      </div>
+  <div class="base-header">
+    <div class="base-header__logo">
+      <p>tape</p>
+    </div>
+    <div class="base-header__search">
+      <input class="base-header__search__input" type="text" placeholder="Search for titles, people, genres ">
+    </div>
+    <div class="base-header__nav">
+      <ul>
+        <li>
+          <a class="base-header__nav__link" href="#">
+            Home
+          </a>
+        </li>
+        <li>
+          <a class="base-header__nav__link" href="#">
+            Feed
+          </a>
+        </li>
+        <li>
+          <a class="base-header__nav__link" href="#">
+            <font-awesome-icon :icon="['far', 'bell']"/>
+          </a>
+        </li>
+        <li>
+          <a class="base-header__nav__link" href="#">
+            <base-avatar/>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
   import BaseAvatar from '../Avatar/BaseAvatar'
+
   export default {
     name: 'BaseHeader',
     components: { BaseAvatar }
@@ -44,9 +43,6 @@
 </script>
 
 <style lang="scss">
-  .base-header-fon{
-    background: #fff;
-  }
   .base-header {
     max-width: 1200px;
     width: 100%;
@@ -56,9 +52,11 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    &__nav{
+
+    &__nav {
       flex-grow: 1;
-      ul{
+
+      ul {
         margin: 0;
         padding: 0;
         display: flex;
@@ -66,26 +64,31 @@
         align-items: center;
         list-style: none;
       }
-      .base-avatar{
+
+      .base-avatar {
         width: 40px;
         height: 40px;
       }
-      &__link{
+
+      &__link {
         font-family: Roboto;
         font-size: 18px;
         letter-spacing: 1px;
         text-align: center;
         color: var(--black);
         text-decoration: none;
-        .fa-bell{
+
+        .fa-bell {
           color: var(--greyish-brown);
         }
       }
     }
-    &__search{
+
+    &__search {
       flex-grow: 2;
       padding-left: 155px;
-      &__input{
+
+      &__input {
         font-family: "Roboto";
         font-size: 18px;
         color: #000;
@@ -97,8 +100,9 @@
         background-size: 17px;
       }
     }
-    &__logo{
-      p{
+
+    &__logo {
+      p {
         font-size: 27px;
         margin: 0;
         font-weight: bold;
