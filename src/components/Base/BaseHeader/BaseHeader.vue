@@ -4,7 +4,10 @@
       <p>tape</p>
     </div>
     <div class="base-header__search">
-      <input class="base-header__search__input" type="text" placeholder="Search for titles, people, genres ">
+      <input class="base-header__search__input"
+             type="text"
+             :placeholder="placeholder"
+      >
     </div>
     <div class="base-header__nav">
       <ul>
@@ -38,7 +41,13 @@
 
   export default {
     name: 'BaseHeader',
-    components: { BaseAvatar }
+    components: { BaseAvatar },
+    props: {
+      placeholder: {
+        type: String,
+        default: 'Search for titles, people, genres'
+      }
+    }
   }
 </script>
 

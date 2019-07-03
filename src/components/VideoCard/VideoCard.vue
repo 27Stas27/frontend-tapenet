@@ -41,12 +41,12 @@
 
 <script>
   import BaseCard from '../Base/Card/BaseCard'
-  import VideoGif from "../Base/VideoGif/VideoGif";
-  import BaseAvatar from "../Base/Avatar/BaseAvatar";
+  import VideoGif from '../Base/VideoGif/VideoGif'
+  import BaseAvatar from '../Base/Avatar/BaseAvatar'
 
   export default {
-    name: "VideoCard",
-    components: {VideoGif, BaseCard, BaseAvatar},
+    name: 'VideoCard',
+    components: { VideoGif, BaseCard, BaseAvatar },
     props: {
       video: {
         type: Object,

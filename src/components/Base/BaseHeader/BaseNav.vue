@@ -2,19 +2,12 @@
   <div class="base-nav-fon">
     <div class="base-nav">
       <ul class="base-nav__list">
-        <li>
-          <a class="base-nav__list__link" href="#">
-            Friends
-          </a>
-        </li>
-        <li>
-          <a class="base-nav__list__link" href="#">
-            Discover
-          </a>
-        </li>
-        <li>
-          <a class="base-nav__list__link" href="#">
-            Hot!
+        <li
+          v-for="nav in navLink"
+          :key="nav.id"
+        >
+          <a class="base-nav__list__link" :href="href">
+            {{nav.name}}
           </a>
         </li>
       </ul>
@@ -24,7 +17,31 @@
 
 <script>
   export default {
-    name: 'BaseNav'
+    name: 'BaseNav',
+    props: {
+      href: {
+        type: String,
+        default: '#'
+      }
+    },
+    data () {
+      return {
+        navLink: [
+          {
+            id: '1',
+            name: 'Friend'
+          },
+          {
+            id: '2',
+            name: 'Discover'
+          },
+          {
+            id: '3',
+            name: 'Hot!'
+          }
+        ]
+      }
+    }
   }
 </script>
 
