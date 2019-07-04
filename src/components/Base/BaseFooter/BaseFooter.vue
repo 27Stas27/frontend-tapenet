@@ -99,20 +99,14 @@
           © 2017 Shkodran Arifi
         </li>
         <li>
-          <a href="#">
-            <img class="base-footer__list__link__img"
-              src="../../../assets/images/combined.svg"
-              alt="facebook">
+          <a class="base-footer__list__link base-footer__list__link__icon" href="#">
+            <span class="base-footer__list__icon-facebook2"></span>
           </a>
-          <a href="#">
-            <img class="base-footer__list__link__img"
-              src="../../../assets/images/shape.svg"
-              alt="twitter">
+          <a class="base-footer__list__link base-footer__list__link__icon" href="#">
+            <span class="base-footer__list__icon-twitter"></span>
           </a>
-          <a href="#">
-            <img class="base-footer__list__link__img"
-              src="../../../assets/images/invalid.svg"
-              alt="invalid">
+          <a class="base-footer__list__link base-footer__list__link__icon" href="#">
+            <span class="base-footer__list__icon-dribble"></span>
           </a>
         </li>
       </ul>
@@ -121,12 +115,13 @@
 </template>
 
 <script>
-  export default {
-    name: 'BaseFooter'
-  }
+export default {
+  name: 'BaseFooter'
+}
 </script>
 
 <style lang="scss">
+
   .base-footer {
     width: 100%;
     max-width: 1200px;
@@ -142,6 +137,27 @@
       margin: 0;
       list-style: none;
 
+      &__icon-facebook2:before {
+        content: "\ea91";
+        color: var(--black);
+        font-size: 19px;
+        opacity: .6;
+      }
+
+      &__icon-twitter:before {
+        content: "\ea96";
+        color: var(--black);
+        font-size: 23px;
+        opacity: .6;
+      }
+
+      &__icon-dribble:before {
+        content: "\eaa7";
+        color: var(--black);
+        font-size: 19px;
+        opacity: .6;
+      }
+
       &__title {
         font-family: "Roboto";
         font-size: 15px;
@@ -151,22 +167,28 @@
         letter-spacing: normal;
         color: var(--greyish-brown);
       }
-      &__link{
+
+      &__link {
         text-decoration: none;
         font-family: Roboto;
         font-size: 14px;
         line-height: 1.86;
         color: var(--greyish-brown);
-        &__img{
+
+        &__img {
           height: 19px;
           margin-right: 14px;
           opacity: .6;
           object-fit: contain;
           vertical-align: top;
         }
-        span{
+
+        span {
           font-weight: bold;
         }
+      }
+      &__link__icon{
+        padding-right: 14px;
       }
     }
   }

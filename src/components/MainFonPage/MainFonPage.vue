@@ -7,9 +7,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'MainFonPage'
-  }
+export default {
+  name: 'MainFonPage'
+}
 </script>
 
 <style lang="scss">

@@ -16,33 +16,33 @@
 </template>
 
 <script>
-  export default {
-    name: 'BaseNav',
-    props: {
-      href: {
-        type: String,
-        default: '#'
-      }
-    },
-    data () {
-      return {
-        navLink: [
-          {
-            id: '1',
-            name: 'Friend'
-          },
-          {
-            id: '2',
-            name: 'Discover'
-          },
-          {
-            id: '3',
-            name: 'Hot!'
-          }
-        ]
-      }
+export default {
+  name: 'BaseNav',
+  props: {
+    href: {
+      type: String,
+      default: '#'
+    }
+  },
+  data () {
+    return {
+      navLink: [
+        {
+          id: '1',
+          name: 'Friend'
+        },
+        {
+          id: '2',
+          name: 'Discover'
+        },
+        {
+          id: '3',
+          name: 'Hot!'
+        }
+      ]
     }
   }
+}
 </script>
 
 <style lang="scss">

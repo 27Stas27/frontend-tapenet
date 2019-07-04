@@ -8,19 +8,19 @@
 </template>
 
 <script>
-  export default {
-    name: "baseAvatar",
-    props: {
-      image: {
-        type: String,
-        default: 'https://picsum.photos/200'
-      },
-      alt: {
-        type: String,
-      },
-
+export default {
+  name: 'baseAvatar',
+  props: {
+    image: {
+      type: String,
+      default: 'https://picsum.photos/200'
     },
+    alt: {
+      type: String
+    }
+
   }
+}
 </script>
 
 <style lang="scss">

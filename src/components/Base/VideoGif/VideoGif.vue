@@ -13,19 +13,19 @@
 </template>
 
 <script>
-  export default {
-    name: "VideoGif",
-    props: {
-      image: {
-        type: String,
-        default: 'https://via.placeholder.com/600x500'
-      },
-      alt: {
-        type: String,
-      },
-
+export default {
+  name: 'VideoGif',
+  props: {
+    image: {
+      type: String,
+      default: 'https://via.placeholder.com/600x500'
     },
+    alt: {
+      type: String
+    }
+
   }
+}
 </script>
 
 <style lang="scss">

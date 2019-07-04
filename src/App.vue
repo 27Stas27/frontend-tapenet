@@ -2,24 +2,32 @@
   <div id="app">
     <base-header/>
     <base-nav/>
-      <main-fon-page>
-        <div>
-          <video-card
-            v-for="video in videoList"
-            :key="video.id"
-            :video="video"
-          />
-        </div>
-        <div>
-          <user-card/>
-          <movies-watch/>
-        </div>
-      </main-fon-page>
+    <main-fon-page>
+      <div>
+        <video-card
+          v-for="video in videoList"
+          :key="video.id"
+          :video="video"
+        />
+      </div>
+      <div>
+        <user-card/>
+        <movies-watch/>
+      </div>
+    </main-fon-page>
     <base-footer/>
   </div>
 </template>
 
 <style lang="scss">
+  @font-face {
+    font-family: "icomoon";
+    src: url("./assets/fonts/icomoon/icomoon.eot");
+    src: url("./assets/fonts/icomoon/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("./assets/fonts/icomoon/icomoon.woff") format("woff"),
+    url("./assets/fonts/icomoon/icomoon.ttf") format("truetype");
+  }
+
   @font-face {
     font-family: "Roboto";
     src: url("./assets/fonts/Roboto/Roboto.eot");
@@ -68,6 +76,14 @@
     font-family: "SFUIText";
   }
 
+  [class^="__icon-"],
+  [class*="__icon-"] {
+    font-family: 'icomoon' !important;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   :root {
     --black: #000;
     --salmon: #ff8376;
@@ -87,7 +103,6 @@
 
   /*}*/
 
-
   @media screen and (min-width: 320px) and (max-width: 1199px) {
     .friends-page__body {
       justify-content: center;
@@ -95,48 +110,48 @@
   }
 </style>
 <script>
-  import UserCard from './components/User/UserCard'
-  import MoviesWatch from './components/Movies/MoviesWatch'
-  import VideoCard from './components/VideoCard/VideoCard'
-  import BaseHeader from './components/Base/BaseHeader/BaseHeader'
-  import BaseNav from './components/Base/BaseHeader/BaseNav'
-  import BaseFooter from './components/Base/BaseFooter/BaseFooter'
-  import MainFonPage from './components/MainFonPage/MainFonPage'
+import UserCard from './components/User/UserCard'
+import MoviesWatch from './components/Movies/MoviesWatch'
+import VideoCard from './components/VideoCard/VideoCard'
+import BaseHeader from './components/Base/BaseHeader/BaseHeader'
+import BaseNav from './components/Base/BaseHeader/BaseNav'
+import BaseFooter from './components/Base/BaseFooter/BaseFooter'
+import MainFonPage from './components/MainFonPage/MainFonPage'
 
-  export default {
-    components: { MainFonPage, BaseFooter, BaseNav, BaseHeader, VideoCard, MoviesWatch, UserCard },
-    data () {
-      return {
-        videoList: [
-          {
-            id: '1',
-            name: 'DESIGNATED SURVIVOR',
-            image: 'https://picsum.photos/500/400',
-            publishedAt: '2m ago',
-            released: '2017',
-            genders: 'TV Shows',
-            available: '13+',
-            season: '1 season',
-            user: {
-              name: 'Shkodran Arifi'
-            }
-          },
-          {
-            id: '2',
-            name: 'NARCOS',
-            image: 'https://picsum.photos/500/400',
-            publishedAt: '5m ago',
-            released: '2013',
-            genders: 'TV Series',
-            available: '3+',
-            season: '4 season',
-            user: {
-              name: 'Jane Brewer'
-            }
-          },
+export default {
+  components: { MainFonPage, BaseFooter, BaseNav, BaseHeader, VideoCard, MoviesWatch, UserCard },
+  data () {
+    return {
+      videoList: [
+        {
+          id: '1',
+          name: 'DESIGNATED SURVIVOR',
+          image: 'https://picsum.photos/500/400',
+          publishedAt: '2m ago',
+          released: '2017',
+          genders: 'TV Shows',
+          available: '13+',
+          season: '1 season',
+          user: {
+            name: 'Shkodran Arifi'
+          }
+        },
+        {
+          id: '2',
+          name: 'NARCOS',
+          image: 'https://picsum.photos/500/400',
+          publishedAt: '5m ago',
+          released: '2013',
+          genders: 'TV Series',
+          available: '3+',
+          season: '4 season',
+          user: {
+            name: 'Jane Brewer'
+          }
+        }
 
-        ],
-      }
+      ]
     }
   }
+}
 </script>
