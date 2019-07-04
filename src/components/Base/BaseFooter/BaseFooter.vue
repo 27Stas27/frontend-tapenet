@@ -158,9 +158,11 @@
         line-height: 1.86;
         color: var(--greyish-brown);
         &__img{
-          width: 19px;
           height: 19px;
           margin-right: 14px;
+          opacity: .6;
+          object-fit: contain;
+          vertical-align: top;
         }
         span{
           font-weight: bold;

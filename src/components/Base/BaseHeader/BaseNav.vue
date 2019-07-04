@@ -72,13 +72,13 @@
         letter-spacing: 0px;
         color: #ffffff;
         text-decoration: none;
-        border-bottom: 1px solid transparent;
-        transition: border-bottom .7s;
+        border-bottom: 2px solid transparent;
+        transition: border-bottom .7s ;
       }
 
       &__link:hover {
         font-weight: bolder;
-        border-bottom: 1px solid #fff;
+        border-bottom: 2px solid #fff;
       }
     }
   }

@@ -23,7 +23,7 @@
         </li>
         <li>
           <a class="base-header__nav__link" href="#">
-            <font-awesome-icon :icon="['far', 'bell']"/>
+            <font-awesome-icon class="base-header__nav__link__icon" :icon="['far', 'bell']"/>
           </a>
         </li>
         <li>
@@ -87,8 +87,12 @@
         color: var(--black);
         text-decoration: none;
 
-        .fa-bell {
-          color: var(--greyish-brown);
+        &__icon {
+          color: #4a4a4a;
+          width: 20px !important;
+          height: 21px;
+          vertical-align: middle;
+          font-weight: 100;
         }
       }
     }
@@ -98,21 +102,21 @@
       padding-left: 155px;
 
       &__input {
-        font-family: "Roboto";
+        color: #b7b4b4;
+        font-family: "SFUIText";
         font-size: 18px;
-        color: #000;
         border: none;
         outline: none;
         width: 280px;
         padding-left: 25px;
         background: url("../../../assets/images/search.png") no-repeat 0% 50%;
-        background-size: 17px;
+        background-size: 20px;
       }
     }
 
     &__logo {
       p {
-        font-size: 27px;
+        font-size: 35px;
         margin: 0;
         font-weight: bold;
         color: var(--salmon);
