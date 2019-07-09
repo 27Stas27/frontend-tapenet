@@ -30,38 +30,54 @@
           </p>
         </div>
         <div class="feed__section__spot__around__map">
-          <div class="feed__section__spot__around__map__dot usa"
-               @click="toggle = !toggle">
-            <span class="feed__section__spot__around__map__dot__icon-close"
-                  v-show="toggle"></span>
-            <span class="feed__section__spot__around__map__dot__black"></span>
-            <span class="feed__section__spot__around__map__dot__orange"></span>
-            <div class="feed__section__spot__around__map__dot__description"
-                 v-show="toggle">
-              <img src="https://picsum.photos/200"
-                   alt="">
-              <p class="feed__section__spot__around__map__dot__description__text">
-                <span>Place:</span><br>
-                Salvador, USA
-              </p>
-              <p class="feed__section__spot__around__map__dot__description__text">
-                <span>Time:</span><br>
-                08:00 - 16:00
-              </p>
-            </div>
-          </div>
-          <div class="feed__section__spot__around__map__dot brazil">
-            <span class="feed__section__spot__around__map__dot__black"></span>
-            <span class="feed__section__spot__around__map__dot__orange"></span>
-          </div>
-          <div class="feed__section__spot__around__map__dot africa">
-            <span class="feed__section__spot__around__map__dot__black"></span>
-            <span class="feed__section__spot__around__map__dot__orange"></span>
-          </div>
-          <div class="feed__section__spot__around__map__dot chili">
-            <span class="feed__section__spot__around__map__dot__black"></span>
-            <span class="feed__section__spot__around__map__dot__orange"></span>
-          </div>
+          <map-button class="usa">
+            <img src="https://picsum.photos/200"
+                 alt="">
+            <p class="map-button__description__text">
+              <span>Place:</span><br>
+              Salvador, USA
+            </p>
+            <p class="map-button__description__text">
+              <span>Time:</span><br>
+              08:00 - 16:00
+            </p>
+          </map-button>
+          <map-button class="africa">
+            <img src="https://picsum.photos/200"
+                 alt="">
+            <p class="map-button__description__text">
+              <span>Place:</span><br>
+              Salvador, africa
+            </p>
+            <p class="map-button__description__text">
+              <span>Time:</span><br>
+              08:00 - 16:00
+            </p>
+          </map-button>
+          <map-button class="brazil">
+            <img src="https://picsum.photos/200"
+                 alt="">
+            <p class="map-button__description__text">
+              <span>Place:</span><br>
+              Salvador, brazil
+            </p>
+            <p class="map-button__description__text">
+              <span>Time:</span><br>
+              08:00 - 16:00
+            </p>
+          </map-button>
+          <map-button class="chili">
+            <img src="https://picsum.photos/200"
+                 alt="">
+            <p class="map-button__description__text">
+              <span>Place:</span><br>
+              Salvador, chili
+            </p>
+            <p class="map-button__description__text">
+              <span>Time:</span><br>
+              08:00 - 16:00
+            </p>
+          </map-button>
           <p class="feed__section__spot__around__map__text">
             On the Set
           </p>
@@ -85,17 +101,16 @@
         </span>
       </base-slider>
     </section>
-
-
   </div>
 </template>
 
 <script>
   import BaseSlider from '../components/Base/BaseSlider/BaseSlider'
+  import MapButton from '../components/MapButton/MapButton'
 
   export default {
     name: 'Home.vue',
-    components: { BaseSlider },
+    components: { MapButton, BaseSlider },
     props: {
       image: {
         type: String,
@@ -103,11 +118,6 @@
       },
       alt: {
         type: String
-      }
-    },
-    data () {
-      return {
-        toggle: true
       }
     }
   }
@@ -216,104 +226,6 @@
             color: #ffffff;
           }
 
-          &__dot {
-            cursor: pointer;
-            position: absolute;
-            width: 39.5px;
-            height: 39.5px;
-            border-radius: 100%;
-            background: rgba(0, 0, 0, 0.4);
-
-            &__icon-close {
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              right: 0;
-              left: 0;
-              margin: auto;
-              width: 11.5px;
-              height: 11.5px;
-              z-index: 1;
-              background: #000;
-            }
-
-            &__icon-close:before {
-              content: "\e902";
-              font-size: 12px;
-              color: #fff;
-              vertical-align: top;
-            }
-
-            &__black {
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              right: 0;
-              left: 0;
-              margin: auto;
-              width: 28px;
-              height: 28px;
-              border-radius: 100%;
-              background: var(--black);
-            }
-
-            &__orange {
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              right: 0;
-              left: 0;
-              margin: auto;
-              width: 6px;
-              height: 6px;
-              border-radius: 100%;
-              background: var(--salmon);
-            }
-
-            &__description {
-              position: absolute;
-              bottom: -87px;
-              left: 58px;
-              width: 181.4px;
-              border-radius: 8px;
-              box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5);
-              background: #fff;
-              z-index: 2;
-
-              &__text {
-                font-family: "Roboto-Light";
-                font-size: 16px;
-                margin: 0 0 11px 0;
-                padding-left: 10px;
-                color: var(--greyish-brown);
-
-                span {
-                  font-family: "Roboto";
-                }
-              }
-
-              img {
-                width: 100%;
-                height: 115px;
-                margin-bottom: 13px;
-                object-fit: cover;
-                border-radius: 8px 8px 0 0;
-              }
-            }
-
-            &__description:before {
-              position: absolute;
-              top: 118px;
-              left: -8px;
-              content: " ";
-              width: 16px;
-              height: 16px;
-              transform: rotate(-45deg);
-              box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5);
-              background: #fff;
-              z-index: -1;
-            }
-          }
 
           .usa {
             top: 130px;
