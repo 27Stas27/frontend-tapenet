@@ -1,18 +1,19 @@
 <template>
   <div class="hello">
+
+    <input id="input" type="text">
+    <button id="button">Add Name</button>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  export default {
+    name: 'HelloWorld.vue'
   }
-}
+
+
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
 </style>

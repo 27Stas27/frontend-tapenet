@@ -13,23 +13,25 @@
     <div class="base-header__nav">
       <ul>
         <li>
-          <a class="base-header__nav__link" href="#">
-            Home
-          </a>
+          <router-link class="base-header__nav__link"
+                       to="/">Home
+          </router-link>
         </li>
         <li>
-          <a class="base-header__nav__link" href="#">
-            Feed
-          </a>
+          <router-link class="base-header__nav__link"
+                       to="/Feed">Feed
+          </router-link>
         </li>
         <li>
-          <a class="base-header__nav__link" href="#">
+          <a class="base-header__nav__link"
+             href="#">
             <span class="base-header__nav__link__icon-bell"></span>
             <!--<font-awesome-icon class="base-header__nav__link__icon" :icon="['far', 'bell']"/>-->
           </a>
         </li>
         <li>
-          <a class="base-header__nav__link base-header__nav__link__last" href="#">
+          <a class="base-header__nav__link base-header__nav__link__last"
+             href="#">
             <base-avatar/>
           </a>
         </li>
@@ -39,18 +41,18 @@
 </template>
 
 <script>
-import BaseAvatar from '../Avatar/BaseAvatar'
+  import BaseAvatar from '../Avatar/BaseAvatar'
 
-export default {
-  name: 'BaseHeader',
-  components: { BaseAvatar },
-  props: {
-    placeholder: {
-      type: String,
-      default: 'Search for titles, people, genres'
+  export default {
+    name: 'BaseHeader',
+    components: { BaseAvatar },
+    props: {
+      placeholder: {
+        type: String,
+        default: 'Search for titles, people, genres'
+      }
     }
   }
-}
 </script>
 
 <style lang="scss">
@@ -92,7 +94,7 @@ export default {
         padding-right: 57px;
 
         &__icon-bell:before {
-          content: "\e900";
+          content: "\e901";
           color: #4a4a4a;
           font-size: 20px;
           font-weight: 100;

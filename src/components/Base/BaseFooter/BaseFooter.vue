@@ -138,7 +138,7 @@ export default {
       list-style: none;
 
       &__icon-facebook2:before {
-        content: "\ea91";
+        content: "\ea90";
         color: var(--black);
         font-size: 19px;
         opacity: .6;

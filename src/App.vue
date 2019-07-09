@@ -1,20 +1,8 @@
 <template>
   <div id="app">
     <base-header/>
-    <base-nav/>
-    <main-fon-page>
-      <div>
-        <video-card
-          v-for="video in videoList"
-          :key="video.id"
-          :video="video"
-        />
-      </div>
-      <div>
-        <user-card/>
-        <movies-watch/>
-      </div>
-    </main-fon-page>
+
+    <router-view></router-view>
     <base-footer/>
   </div>
 </template>
@@ -27,6 +15,7 @@
     url("./assets/fonts/icomoon/icomoon.woff") format("woff"),
     url("./assets/fonts/icomoon/icomoon.ttf") format("truetype");
   }
+
 
   @font-face {
     font-family: "Roboto";
@@ -85,6 +74,7 @@
   }
 
   :root {
+    --circle:linear-gradient(to left, #ff7eac, #ff8376);
     --black: #000;
     --salmon: #ff8376;
     --silver-50: rgba(208, 211, 218, 0.5);
@@ -94,7 +84,9 @@
     --greyish-brown: #4a4a4a;
 
   }
-
+  *{
+    box-sizing: border-box;
+  }
   body {
     margin: 0;
   }
@@ -107,51 +99,19 @@
     .friends-page__body {
       justify-content: center;
     }
+    .base-slider__around__slick__img{
+      height: auto;
+    }
   }
 </style>
 <script>
-import UserCard from './components/User/UserCard'
-import MoviesWatch from './components/Movies/MoviesWatch'
-import VideoCard from './components/VideoCard/VideoCard'
-import BaseHeader from './components/Base/BaseHeader/BaseHeader'
-import BaseNav from './components/Base/BaseHeader/BaseNav'
-import BaseFooter from './components/Base/BaseFooter/BaseFooter'
-import MainFonPage from './components/MainFonPage/MainFonPage'
 
-export default {
-  components: { MainFonPage, BaseFooter, BaseNav, BaseHeader, VideoCard, MoviesWatch, UserCard },
-  data () {
-    return {
-      videoList: [
-        {
-          id: '1',
-          name: 'DESIGNATED SURVIVOR',
-          image: 'https://picsum.photos/500/400',
-          publishedAt: '2m ago',
-          released: '2017',
-          genders: 'TV Shows',
-          available: '13+',
-          season: '1 season',
-          user: {
-            name: 'Shkodran Arifi'
-          }
-        },
-        {
-          id: '2',
-          name: 'NARCOS',
-          image: 'https://picsum.photos/500/400',
-          publishedAt: '5m ago',
-          released: '2013',
-          genders: 'TV Series',
-          available: '3+',
-          season: '4 season',
-          user: {
-            name: 'Jane Brewer'
-          }
-        }
 
-      ]
-    }
+  import BaseHeader from './components/Base/BaseHeader/BaseHeader'
+  import BaseFooter from './components/Base/BaseFooter/BaseFooter'
+
+  export default {
+    name: 'App.vue',
+    components: { BaseFooter, BaseHeader }
   }
-}
 </script>
