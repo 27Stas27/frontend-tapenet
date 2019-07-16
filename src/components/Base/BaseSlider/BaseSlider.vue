@@ -1,40 +1,20 @@
 <template>
   <div class="base-slider">
 
-      <slot/>
+    <slot/>
     <div class="base-slider__around">
       <slick
         class="base-slider__around__slick"
         ref="slick"
         :options="slickOptions">
+
         <img
           class="base-slider__around__slick__img"
-          src="https://picsum.photos/200/300"
-          alt="">
-        <img
-          class="base-slider__around__slick__img"
-          src="https://picsum.photos/200/300"
-          alt="">
-        <img
-          class="base-slider__around__slick__img"
-          src="https://picsum.photos/200/300"
-          alt="">
-        <img
-          class="base-slider__around__slick__img"
-          src="https://picsum.photos/200/300"
-          alt="">
-        <img
-          class="base-slider__around__slick__img"
-          src="https://picsum.photos/200/300"
-          alt="">
-        <img
-          class="base-slider__around__slick__img"
-          src="https://picsum.photos/200/300"
-          alt="">
-        <img
-          class="base-slider__around__slick__img"
-          src="https://picsum.photos/200/300"
-          alt="">
+          :key="'moviesPreview'+i"
+          v-for="(movie, i) in moviesPreview"
+          :src="movie.cover"
+          :title="movie.title"
+        >
 
       </slick>
       <button class="base-slider__around__icon-chevron-thin-right"
@@ -51,6 +31,11 @@
   export default {
     name: 'BaseSlider',
     components: { Slick },
+    props:{
+      movies:Array,
+      type:String,
+      search:String
+    },
     data () {
       return {
         slickOptions: {
@@ -59,6 +44,14 @@
         },
       }
     },
+    computed: {
+      moviesPreview () {
+        return this.movies.filter((movie) => {
+          return movie.type === this.type && movie.title.toLowerCase().includes(this.search)
+        })
+      }
+    },
+
     methods: {
       next () {
         this.$refs.slick.next()
@@ -74,6 +67,7 @@
     width: 85%;
     max-width: 1230px;
     margin: 0 auto;
+
     &__around {
       position: relative;
 
@@ -138,9 +132,10 @@
     .slick-initialized .slick-slide {
       text-align: center;
       margin: 0;
-      padding:15px 12.5px;
-      div{
-        max-width: 210xp;
+      padding: 15px 12.5px;
+
+      div {
+        max-width: 210 xp;
       }
     }
 
