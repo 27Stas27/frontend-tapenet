@@ -12,7 +12,8 @@
       >
       <base-slider :movies="movies"
                    :type="'continue'"
-                   :search="search">
+                   :search="search"
+                   :reloading="reloading">
         <span class="base-slider__around__icon-radio-unchecked"></span>
         <span class="base-slider__around__description">
           Continue watching
@@ -33,68 +34,11 @@
           </p>
         </div>
         <div class="feed__section__spot__around__map">
-
-<!--          <svg width="100%"-->
-<!--               height="100%">-->
-<!--            <image xlink:href="../assets/images/map.svg"-->
-<!--                   height="388"-->
-<!--                   width="767"/>-->
-<!--            <circle cx="10%"-->
-<!--                    cy="10%"-->
-<!--                    r="22"-->
-<!--                    stroke="rgba(0,0,0,0.5)"-->
-<!--                    stroke-width="15"-->
-<!--                    fill="#000"/>-->
-<!--          </svg>-->
-
-          <!--          <map-button class="usa">-->
-          <!--            <img src="https://picsum.photos/200"-->
-          <!--                 alt="">-->
-          <!--            <p class="map-button__description__text">-->
-          <!--              <span>Place:</span><br>-->
-          <!--              Salvador, USA-->
-          <!--            </p>-->
-          <!--            <p class="map-button__description__text">-->
-          <!--              <span>Time:</span><br>-->
-          <!--              08:00 - 16:00-->
-          <!--            </p>-->
-          <!--          </map-button>-->
-          <!--          <map-button class="africa">-->
-          <!--            <img src="https://picsum.photos/200"-->
-          <!--                 alt="">-->
-          <!--            <p class="map-button__description__text">-->
-          <!--              <span>Place:</span><br>-->
-          <!--              Salvador, africa-->
-          <!--            </p>-->
-          <!--            <p class="map-button__description__text">-->
-          <!--              <span>Time:</span><br>-->
-          <!--              08:00 - 16:00-->
-          <!--            </p>-->
-          <!--          </map-button>-->
-          <!--          <map-button class="brazil">-->
-          <!--            <img src="https://picsum.photos/200"-->
-          <!--                 alt="">-->
-          <!--            <p class="map-button__description__text">-->
-          <!--              <span>Place:</span><br>-->
-          <!--              Salvador, brazil-->
-          <!--            </p>-->
-          <!--            <p class="map-button__description__text">-->
-          <!--              <span>Time:</span><br>-->
-          <!--              08:00 - 16:00-->
-          <!--            </p>-->
-          <!--          </map-button>-->
-          <!--          <map-button class="chili">-->
-          <!--            <img src="https://picsum.photos/200"-->
-          <!--                 alt="">-->
-          <!--            <p class="map-button__description__text">-->
-          <!--              <span>Place:</span><br>-->
-          <!--              Salvador, chili-->
-          <!--            </p>-->
-          <!--            <p class="map-button__description__text">-->
-          <!--              <span>Time:</span><br>-->
-          <!--              08:00 - 16:00-->
-          <!--            </p>-->
-          <!--          </map-button>-->
+          <map-svg @showDiscription="onL"/>
+          <map-description v-show="toggle"
+                           v-for="mapD in mapDiscriptions"
+                           :key="mapD.id"
+                           :mapD="mapD"/>
           <p class="feed__section__spot__around__map__text">
             On the Set
           </p>
@@ -108,7 +52,8 @@
       <base-slider class="feed__section__bottom__trending"
                    :movies="movies"
                    :type="'trending'"
-                   :search="search">
+                   :search="search"
+                   :reloading="reloading">
         <span class="base-slider__around__icon-radio-unchecked"></span>
         <span class="base-slider__around__description">
           Trending
@@ -116,7 +61,8 @@
       </base-slider>
       <base-slider :movies="movies"
                    :type="'action'"
-                   :search="search">
+                   :search="search"
+                   :reloading="reloading">
         <span class="base-slider__around__icon-radio-unchecked"></span>
         <span class="base-slider__around__description">
           Action
@@ -128,11 +74,12 @@
 
 <script>
   import BaseSlider from '../components/Base/BaseSlider/BaseSlider'
-  import MapButton from '../components/MapButton/MapButton'
+  import MapDescription from '../components/Map/MapDescription'
+  import MapSvg from '../components/Map/MapSvg'
 
   export default {
     name: 'Home.vue',
-    components: { MapButton, BaseSlider },
+    components: { MapSvg, MapDescription, BaseSlider },
     props: {
       image: {
         type: String,
@@ -141,15 +88,44 @@
       alt: {
         type: String
       }
+
+    },
+    methods: {
+      onL (data) {
+        this.toggle = data.toggle
+        this.country = data.country
+
+        console.log(this.toggle, this.country)
+      }
     },
     data () {
       return {
         movies: [],
-        search: ''
+        search: '',
+        toggle: false,
+        country: '',
+        reloading: false,
+        mapDiscriptions: [
+          {
+            id: '1',
+            place: 'Salvador, USA',
+            image: 'https://picsum.photos/200',
+            time: '08:00 - 16:00',
+            country: 'usa'
+          },
+          {
+            id: '2',
+            place: 'Salvador, Brazil',
+            image: 'https://picsum.photos/200',
+            time: '09:00 - 12:00',
+            country: 'brazil'
+          },
+        ],
       }
     },
     async created () {
       this.movies = (await axios.get('http://my-json-server.typicode.com/D3-FC/json-server-demo/movies')).data
+      this.reloading = true
     }
 
   }
@@ -254,26 +230,6 @@
             font-size: 24px;
             line-height: 1.67;
             color: #ffffff;
-          }
-
-          .usa {
-            top: 130px;
-            left: 146px;
-          }
-
-          .brazil {
-            top: 238px;
-            left: 160px;
-          }
-
-          .chili {
-            top: 321px;
-            left: 194px;
-          }
-
-          .africa {
-            top: 160px;
-            left: 333px;
           }
         }
       }

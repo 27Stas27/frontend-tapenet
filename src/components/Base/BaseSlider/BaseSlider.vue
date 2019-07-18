@@ -6,6 +6,7 @@
       <slick
         class="base-slider__around__slick"
         ref="slick"
+        :key="reload"
         :options="slickOptions">
 
         <img
@@ -31,13 +32,20 @@
   export default {
     name: 'BaseSlider',
     components: { Slick },
-    props:{
-      movies:Array,
-      type:String,
-      search:String
+    props: {
+      movies: Array,
+      type: String,
+      search: String,
+      reloading: Boolean
+    },
+    watch: {
+      reloading () {
+        this.reload = this.reloading ? ++this.reload : this.reload
+      }
     },
     data () {
       return {
+        reload: 1,
         slickOptions: {
           slidesToShow: 5,
           arrows: false
@@ -51,7 +59,6 @@
         })
       }
     },
-
     methods: {
       next () {
         this.$refs.slick.next()
