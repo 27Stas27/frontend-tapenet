@@ -73,62 +73,63 @@
 </template>
 
 <script>
-  import BaseSlider from '../components/Base/BaseSlider/BaseSlider'
-  import MapDescription from '../components/Map/MapDescription'
-  import MapSvg from '../components/Map/MapSvg'
+import BaseSlider from '../components/Base/BaseSlider/BaseSlider'
+import MapDescription from '../components/Map/MapDescription'
+import MapSvg from '../components/Map/MapSvg'
+import axios from 'axios'
 
-  export default {
-    name: 'Home.vue',
-    components: { MapSvg, MapDescription, BaseSlider },
-    props: {
-      image: {
-        type: String,
-        default: 'https://picsum.photos/300'
-      },
-      alt: {
-        type: String
-      }
-
+export default {
+  name: 'Home.vue',
+  components: { MapSvg, MapDescription, BaseSlider },
+  props: {
+    image: {
+      type: String,
+      default: 'https://picsum.photos/300'
     },
-    methods: {
-      onL (data) {
-        this.toggle = data.toggle
-        this.country = data.country
-
-        console.log(this.toggle, this.country)
-      }
-    },
-    data () {
-      return {
-        movies: [],
-        search: '',
-        toggle: false,
-        country: '',
-        reloading: false,
-        mapDiscriptions: [
-          {
-            id: '1',
-            place: 'Salvador, USA',
-            image: 'https://picsum.photos/200',
-            time: '08:00 - 16:00',
-            country: 'usa'
-          },
-          {
-            id: '2',
-            place: 'Salvador, Brazil',
-            image: 'https://picsum.photos/200',
-            time: '09:00 - 12:00',
-            country: 'brazil'
-          },
-        ],
-      }
-    },
-    async created () {
-      this.movies = (await axios.get('http://my-json-server.typicode.com/D3-FC/json-server-demo/movies')).data
-      this.reloading = true
+    alt: {
+      type: String
     }
 
+  },
+  methods: {
+    onL (data) {
+      this.toggle = data.toggle
+      this.country = data.country
+
+      console.log(this.toggle, this.country)
+    }
+  },
+  data () {
+    return {
+      movies: [],
+      search: '',
+      toggle: false,
+      country: '',
+      reloading: false,
+      mapDiscriptions: [
+        {
+          id: '1',
+          place: 'Salvador, USA',
+          image: 'https://picsum.photos/200',
+          time: '08:00 - 16:00',
+          country: 'usa'
+        },
+        {
+          id: '2',
+          place: 'Salvador, Brazil',
+          image: 'https://picsum.photos/200',
+          time: '09:00 - 12:00',
+          country: 'brazil'
+        }
+      ]
+    }
+  },
+  async created () {
+    this.movies = (await axios.get('http://my-json-server.typicode.com/D3-FC/json-server-demo/movies')).data
+    this.reloading = true
   }
+
+}
 </script>
 <style lang="scss">
   .feed {

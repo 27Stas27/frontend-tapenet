@@ -14,14 +14,14 @@
 </template>
 
 <script>
-  export default {
-    name: 'MapDescription.vue',
-    props: {
-      mapD: {
-        type: Object
-      }
+export default {
+  name: 'MapDescription.vue',
+  props: {
+    mapD: {
+      type: Object
     }
   }
+}
 </script>
 
 <style lang="scss">

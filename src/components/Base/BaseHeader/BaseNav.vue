@@ -10,12 +10,22 @@
             {{nav.name}}
           </a>
         </li>
+        <li>
+          <router-link class="base-nav__list__link"
+                       to="/Discover">
+            Discover
+          </router-link>
+        </li>
       </ul>
     </div>
+<!--    <base-tabs>-->
+
+<!--    </base-tabs>-->
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'BaseNav',
   props: {
@@ -30,10 +40,6 @@ export default {
         {
           id: '1',
           name: 'Friend'
-        },
-        {
-          id: '2',
-          name: 'Discover'
         },
         {
           id: '3',
@@ -67,7 +73,7 @@ export default {
       max-width: 450px;
 
       &__link {
-        font-family: Roboto;
+        font-family: "Roboto";
         font-size: 24px;
         letter-spacing: 0px;
         color: #ffffff;

@@ -54,23 +54,23 @@
 </template>
 
 <script>
-  export default {
-    name: 'MapSvg',
-    data () {
-      return {
-        toggle: true,
-        country: 'usa'
-      }
-    },
-    methods: {
-      showDiscription () {
-        this.$emit('showDiscription', {
-          toggle: this.toggle,
-          country: this.country
-        })
-      }
+export default {
+  name: 'MapSvg',
+  data () {
+    return {
+      toggle: true,
+      country: 'usa'
+    }
+  },
+  methods: {
+    showDiscription () {
+      this.$emit('showDiscription', {
+        toggle: this.toggle,
+        country: this.country
+      })
     }
   }
+}
 </script>
 
 <style lang="scss">

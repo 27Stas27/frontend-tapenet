@@ -17,6 +17,11 @@ export default new Router({
       path: '/Feed',
       name: 'Feed',
       component: () => import(/* webpackChunkName: "about" */ './views/Feed.vue')
+    },
+    {
+      path: '/Discover',
+      name: 'Discover',
+      component: () => import(/* webpackChunkName: "about" */ './views/Discover.vue')
     }
   ]
 })

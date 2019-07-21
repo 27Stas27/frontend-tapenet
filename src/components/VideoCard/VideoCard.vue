@@ -3,7 +3,7 @@
     <div class="video-card__top">
       <div class="video-card__top_name">
         <base-avatar class="video-card__avatar"/>
-        <p>{{video.user.name}}</p>
+        <p>{{video.user}}</p>
       </div>
       <h6>{{video.publishedAt}}</h6>
     </div>

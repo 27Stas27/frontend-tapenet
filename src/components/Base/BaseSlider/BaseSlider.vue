@@ -26,45 +26,45 @@
 </template>
 
 <script>
-  import Slick from 'vue-slick'
-  import '../../../../node_modules/slick-carousel/slick/slick.css'
+import Slick from 'vue-slick'
+import '../../../../node_modules/slick-carousel/slick/slick.css'
 
-  export default {
-    name: 'BaseSlider',
-    components: { Slick },
-    props: {
-      movies: Array,
-      type: String,
-      search: String,
-      reloading: Boolean
-    },
-    watch: {
-      reloading () {
-        this.reload = this.reloading ? ++this.reload : this.reload
-      }
-    },
-    data () {
-      return {
-        reload: 1,
-        slickOptions: {
-          slidesToShow: 5,
-          arrows: false
-        },
-      }
-    },
-    computed: {
-      moviesPreview () {
-        return this.movies.filter((movie) => {
-          return movie.type === this.type && movie.title.toLowerCase().includes(this.search)
-        })
-      }
-    },
-    methods: {
-      next () {
-        this.$refs.slick.next()
+export default {
+  name: 'BaseSlider',
+  components: { Slick },
+  props: {
+    movies: Array,
+    type: String,
+    search: String,
+    reloading: Boolean
+  },
+  watch: {
+    reloading () {
+      this.reload = this.reloading ? ++this.reload : this.reload
+    }
+  },
+  data () {
+    return {
+      reload: 1,
+      slickOptions: {
+        slidesToShow: 5,
+        arrows: false
       }
     }
+  },
+  computed: {
+    moviesPreview () {
+      return this.movies.filter((movie) => {
+        return movie.type === this.type && movie.title.toLowerCase().includes(this.search)
+      })
+    }
+  },
+  methods: {
+    next () {
+      this.$refs.slick.next()
+    }
   }
+}
 </script>
 
 <style lang="scss">

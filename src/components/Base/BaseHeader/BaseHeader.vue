@@ -1,7 +1,8 @@
 <template>
   <div class="base-header">
     <div class="base-header__logo">
-      <p>tape</p>
+      <img src="../../../assets/images/logo.svg"
+           alt="">
     </div>
     <div class="base-header__search">
       <span class="base-header__search__icon-search"></span>
@@ -26,7 +27,6 @@
           <a class="base-header__nav__link"
              href="#">
             <span class="base-header__nav__link__icon-bell"></span>
-            <!--<font-awesome-icon class="base-header__nav__link__icon" :icon="['far', 'bell']"/>-->
           </a>
         </li>
         <li>
@@ -41,18 +41,18 @@
 </template>
 
 <script>
-  import BaseAvatar from '../Avatar/BaseAvatar'
+import BaseAvatar from '../Avatar/BaseAvatar'
 
-  export default {
-    name: 'BaseHeader',
-    components: { BaseAvatar },
-    props: {
-      placeholder: {
-        type: String,
-        default: 'Search for titles, people, genres'
-      }
+export default {
+  name: 'BaseHeader',
+  components: { BaseAvatar },
+  props: {
+    placeholder: {
+      type: String,
+      default: 'Search for titles, people, genres'
     }
   }
+}
 </script>
 
 <style lang="scss">
@@ -124,18 +124,13 @@
         outline: none;
         width: 280px;
         padding-left: 17px;
-        /*background: url("../../../assets/images/search.png") no-repeat 0% 50%;*/
-        /*background-size: 20px;*/
+
       }
     }
 
     &__logo {
-      p {
-        font-size: 35px;
-        margin: 0;
-        font-weight: bold;
-        color: var(--salmon);
-        font-family: "SourceSansPro";
+      img{
+        vertical-align: middle;
       }
     }
   }

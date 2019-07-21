@@ -15,7 +15,6 @@
     url("./assets/fonts/icomoon/icomoon.ttf") format("truetype");
   }
 
-
   @font-face {
     font-family: "Roboto";
     src: url("./assets/fonts/Roboto/Roboto.eot");
@@ -105,12 +104,11 @@
 </style>
 <script>
 
+import BaseHeader from './components/Base/BaseHeader/BaseHeader'
+import BaseFooter from './components/Base/BaseFooter/BaseFooter'
 
-  import BaseHeader from './components/Base/BaseHeader/BaseHeader'
-  import BaseFooter from './components/Base/BaseFooter/BaseFooter'
-
-  export default {
-    name: 'App.vue',
-    components: { BaseFooter, BaseHeader }
-  }
+export default {
+  name: 'App.vue',
+  components: { BaseFooter, BaseHeader }
+}
 </script>

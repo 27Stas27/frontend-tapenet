@@ -7,10 +7,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'HelloWorld.vue'
-  }
-
+export default {
+  name: 'HelloWorld.vue'
+}
 
 </script>
 
