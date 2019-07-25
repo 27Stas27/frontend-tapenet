@@ -14,12 +14,12 @@ export default new Router({
       component: Home
     },
     {
-      path: '/Feed',
+      path: '/feed',
       name: 'Feed',
       component: () => import(/* webpackChunkName: "about" */ './views/Feed.vue')
     },
     {
-      path: '/Discover',
+      path: '/discover',
       name: 'Discover',
       component: () => import(/* webpackChunkName: "about" */ './views/Discover.vue')
     }

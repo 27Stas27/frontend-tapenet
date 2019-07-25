@@ -34,9 +34,11 @@
           </p>
         </div>
         <div class="feed__section__spot__around__map">
-          <map-svg @showDiscription="onL"/>
-          <map-description v-show="toggle"
-                           v-for="mapD in mapDiscriptions"
+          <map-svg @showDescription="DescriptionPosition"/>
+          <map-description :country="country"
+                           :pageX="pageX"
+                           :pageY="pageY"
+                           v-for="mapD in mapDescriptions"
                            :key="mapD.id"
                            :mapD="mapD"/>
           <p class="feed__section__spot__around__map__text">
@@ -84,7 +86,7 @@ export default {
   props: {
     image: {
       type: String,
-      default: 'https://picsum.photos/300'
+      default: 'https://picsum.photos/600'
     },
     alt: {
       type: String
@@ -92,34 +94,48 @@ export default {
 
   },
   methods: {
-    onL (data) {
-      this.toggle = data.toggle
+    DescriptionPosition (data) {
       this.country = data.country
-
-      console.log(this.toggle, this.country)
+      this.pageX = data.x
+      this.pageY = data.y
     }
   },
   data () {
     return {
       movies: [],
       search: '',
-      toggle: false,
       country: '',
+      pageX: '',
+      pageY: '',
       reloading: false,
-      mapDiscriptions: [
+      mapDescriptions: [
         {
           id: '1',
           place: 'Salvador, USA',
-          image: 'https://picsum.photos/200',
+          image: 'https://picsum.photos/id/200/200/300',
           time: '08:00 - 16:00',
-          country: 'usa'
+          country: 'map-svg__usa'
         },
         {
           id: '2',
-          place: 'Salvador, Brazil',
-          image: 'https://picsum.photos/200',
+          place: 'Brazil',
+          image: 'https://picsum.photos/id/201/200/300',
           time: '09:00 - 12:00',
-          country: 'brazil'
+          country: 'map-svg__brazil'
+        },
+        {
+          id: '3',
+          place: 'Chili',
+          image: 'https://picsum.photos/id/202/200/300',
+          time: '08:00 - 20:00',
+          country: 'map-svg__chili'
+        },
+        {
+          id: '4',
+          place: 'Africa',
+          image: 'https://picsum.photos/id/203/200/300',
+          time: '18:00 - 22:00',
+          country: 'map-svg__africa'
         }
       ]
     }

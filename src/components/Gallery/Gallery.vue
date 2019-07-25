@@ -1,13 +1,13 @@
 <template>
-  <div class="gallery">
+  <div :class="picture.class.galleryClass">
     <img :src="picture.image.picture1"
-         class="gallery__picture1">
+         :class="picture.class.className1">
     <img :src="picture.image.picture2"
-         class="gallery__picture2">
+         :class="picture.class.className2">
     <img :src="picture.image.picture3"
-         class="gallery__picture3">
+         :class="picture.class.className3">
     <img :src="picture.image.picture4"
-         class="gallery__picture4">
+         :class="picture.class.className4">
   </div>
 </template>
 
@@ -24,13 +24,12 @@ export default {
 
 <style lang="scss">
 
-.gallery {
+.gallery-top {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 29px auto;
   display: grid;
   grid-template-rows: 155px 155px;
   grid-template-columns: 452px 247px;
-  margin-bottom: 29px;
   grid-gap: 22px 25px;
   grid-template-areas:
     "picture1 picture4 picture2"
@@ -50,6 +49,38 @@ export default {
 
   &__picture1 {
     grid-area: picture1;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.gallery-bottom {
+  max-width: 1200px;
+  margin: 0 auto 29px auto;
+  display: grid;
+  grid-template-rows: 155px 155px;
+  grid-template-columns: 247px 452px;
+  grid-gap: 22px 25px;
+  grid-template-areas:
+    "picture5 picture7 picture8"
+    "picture6 picture7 picture8";
+
+  &__picture5 {
+    grid-area: picture5;
+  }
+
+  &__picture6 {
+    grid-area: picture6;
+  }
+
+  &__picture7 {
+    grid-area: picture7;
+  }
+
+  &__picture8 {
+    grid-area: picture8;
   }
   img {
     width: 100%;

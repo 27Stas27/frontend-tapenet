@@ -9,25 +9,11 @@
         <p class="discover__dropDown__genres__item">Sort by genres</p>
       </div>
     </div>
-    <div class="discover__videoList">
-      <video-card
-        v-for="video in videoList.slice(0,3)"
-        :key="video.id"
-        :video="video"
-      />
-    </div>
-    <gallery v-for="picture in gallery"
-             :key="picture.id"
-             :picture="picture"/>
-    <div class="discover__videoList">
-      <video-card
-        v-for="video in videoList.slice(0,3)"
-        :key="video.id"
-        :video="video"
-      />
-    </div>
+    <discover-content
+      v-for="page in pages"
+      :page="page"/>
     <div class="discover__more">
-      <button class="discover__more_button">
+      <button class="discover__more_button" @click="loadMore()">
         Load more
       </button>
     </div>
@@ -36,22 +22,30 @@
 
 <script>
 import BaseNav from '../components/Base/BaseHeader/BaseNav'
-import VideoCard from '../components/VideoCard/VideoCard'
-import Gallery from '../components/Gallery/Gallery'
+import DiscoverContent from '../components/DiscoverContent/DiscoverContent'
 import axios from 'axios'
+
 export default {
   name: 'Discover.vue',
-  components: { Gallery, VideoCard, BaseNav },
+  components: { DiscoverContent, BaseNav },
   data () {
     return {
-      videoList: [],
-      gallery: []
+      pages: []
     }
   },
   async created () {
-    this.videoList = (await axios.get('http://my-json-server.typicode.com/D3-FC/json-server-demo/videoList')).data
-    this.gallery = (await axios.get('http://my-json-server.typicode.com/D3-FC/json-server-demo/gallery')).data
+    this.loadMore()
+  },
+  methods: {
+    async loadMore () {
+      const videoList = (await axios.get('http://my-json-server.typicode.com/D3-FC/json-server-demo/videoList')).data
+      const gallery = (await axios.get('http://my-json-server.typicode.com/D3-FC/json-server-demo/gallery')).data
 
+      this.pages.push({
+        videoList,
+        gallery
+      })
+    }
   }
 }
 </script>
@@ -103,81 +97,6 @@ export default {
       }
     }
 
-    &__videoList {
-      width: 100%;
-      max-width: 1200px;
-      margin: 57px auto 0 auto;
-      display: flex;
-      justify-content: space-between;
-
-      .video-card {
-        flex: 0 0 370px;
-        min-width: auto;
-        padding: 14px 0 30px 0;
-
-        .video-gif {
-          height: 212px;
-        }
-
-        &__top {
-          padding: 0 20px;
-          margin-bottom: 14px;
-
-          &_name {
-            p {
-              font-family: Roboto;
-              font-size: 14px;
-              font-weight: 500;
-              line-height: 1;
-              color: #5e6977;
-            }
-          }
-
-          &__avatar {
-            width: 30px;
-            height: 30px;
-          }
-        }
-
-        &__bottom {
-          justify-content: center;
-          padding: 20px 0 26px 0;
-          width: calc(100% - 40px);
-          margin: 0 auto;
-          flex: none;
-
-          &_title {
-            flex: 0 0 245px;
-            min-height: 68px;
-            align-items: center;
-
-            p {
-              margin: 0 auto;
-              letter-spacing: 2px;
-            }
-          }
-
-          &_info {
-            flex: 1;
-
-            div:last-child {
-              display: none;
-            }
-
-            div:first-child {
-              display: flex;
-              flex: 1;
-              justify-content: space-between;
-            }
-          }
-        }
-
-        &__comment {
-          padding: 23px 20px 0 20px;
-        }
-      }
-    }
-
     &__more {
       display: flex;
       justify-content: center;
@@ -185,6 +104,7 @@ export default {
       padding: 24px 0 90px 0;
 
       &_button {
+        cursor: pointer;
         padding: 11px 47px;
         outline: none;
         font-family: Roboto;

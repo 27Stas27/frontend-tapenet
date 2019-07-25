@@ -9,6 +9,7 @@
       <input class="base-header__search__input"
              type="text"
              :placeholder="placeholder"
+             @input="search"
       >
     </div>
     <div class="base-header__nav">
@@ -50,6 +51,11 @@ export default {
     placeholder: {
       type: String,
       default: 'Search for titles, people, genres'
+    }
+  },
+  methods:{
+    search (e) {
+      this.$root.$emit('BaseHeaderSearchUpdate', e.target.value)
     }
   }
 }

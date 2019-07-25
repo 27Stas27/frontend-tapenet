@@ -4,6 +4,7 @@
     <slot/>
     <div class="base-slider__around">
       <slick
+        v-if="!disableSlick"
         class="base-slider__around__slick"
         ref="slick"
         :key="reload"
@@ -41,6 +42,9 @@ export default {
   watch: {
     reloading () {
       this.reload = this.reloading ? ++this.reload : this.reload
+    },
+    moviesPreview () {
+      this.reInit()
     }
   },
   data () {
@@ -49,7 +53,8 @@ export default {
       slickOptions: {
         slidesToShow: 5,
         arrows: false
-      }
+      },
+      disableSlick: false
     }
   },
   computed: {
@@ -62,6 +67,12 @@ export default {
   methods: {
     next () {
       this.$refs.slick.next()
+    },
+    async reInit () {
+      await this.$nextTick()
+      this.disableSlick = true
+      await this.$nextTick()
+      this.disableSlick = false
     }
   }
 }

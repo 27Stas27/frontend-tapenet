@@ -5,7 +5,7 @@
     <main-fon-page>
       <div>
         <video-card
-          v-for="video in videoList.slice(0,2)"
+          v-for="video in videoList"
           :key="video.id"
           :video="video"
         />
@@ -35,7 +35,7 @@ export default {
   },
   async created () {
     this.videoList = (await axios.get('http://my-json-server.typicode.com/D3-FC/json-server-demo/videoList')).data
-
+    this.videoList = this.videoList.slice(0,2)
   }
 }
 

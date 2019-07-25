@@ -1,15 +1,17 @@
 <template>
-  <div class="map-description">
-      <img :src="mapD.image"
-           alt="lorem">
-      <p class="map-description__text">
-        <span>Place:</span><br>
-        {{mapD.place}}
-      </p>
-      <p class="map-description__text">
-        <span>Time:</span><br>
-        {{mapD.time}}
-      </p>
+  <div class="map-description"
+       v-if="country === mapD.country"
+       :style="styleObject">
+    <img :src="mapD.image"
+         alt="lorem">
+    <p class="map-description__text">
+      <span>Place:</span><br>
+      {{mapD.place}}
+    </p>
+    <p class="map-description__text">
+      <span>Time:</span><br>
+      {{mapD.time}}
+    </p>
   </div>
 </template>
 
@@ -19,6 +21,17 @@ export default {
   props: {
     mapD: {
       type: Object
+    },
+    country: String,
+    pageX: String,
+    pageY: String
+  },
+  computed: {
+    styleObject () {
+      return {
+        top: this.pageY - 85 + 'px',
+        left: this.pageX - 30 + 60 + 'px'
+      }
     }
   }
 }
@@ -27,13 +40,11 @@ export default {
 <style lang="scss">
   .map-description {
       position: absolute;
-      top: 0;
-      left: 0;
       width: 181.4px;
       border-radius: 8px;
       box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5);
       background: #fff;
-      z-index: 2;
+      z-index: 22;
 
       &__text {
         font-family: "Roboto-Light";
