@@ -64,7 +64,20 @@ export default {
       })
     }
   },
+  mounted () {
+    this.winWidth()
+  },
   methods: {
+    winWidth () {
+      const windowWidth = window.innerWidth
+      if (windowWidth < 769 && windowWidth > 575) {
+        this.slickOptions.slidesToShow = 3
+      } else if (windowWidth < 575) {
+        this.slickOptions.slidesToShow = 2
+      } else {
+        this.slickOptions.slidesToShow = 5
+      }
+    },
     next () {
       this.$refs.slick.next()
     },

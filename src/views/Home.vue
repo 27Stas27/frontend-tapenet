@@ -148,6 +148,7 @@ export default {
 }
 </script>
 <style lang="scss">
+  @import "../assets/scss/base";
   .feed {
     &__section__top {
       padding-bottom: 130px;
@@ -284,8 +285,7 @@ export default {
 
     }
   }
-
-  @media screen and (max-width: 1108px) {
+@include lg(){
     .feed__section__spot__around {
       grid-template-areas: 'title title title' 'film film film' 'map map map';
       grid-template-rows: auto auto 463px;
@@ -306,5 +306,57 @@ export default {
       height: auto;
     }
   }
-
+  @include sm() {
+    .feed__section__top__banner{
+      font-size: 28px;
+    }
+    .feed__section__top__search{
+      max-width: 450px;
+    }
+    .feed__section__bottom__oval{
+      width: 340.8px;
+      height: 340.8px;
+    }
+  }
+  @include xs() {
+    .feed__section__top__search {
+      max-width: 275px;
+      height: 45px;
+      font-size: 12px;
+      margin: 30px auto;
+      padding-left: 12px;
+      background-size: 15px;
+    }
+    .base-slider__around__description{
+      font-size: 17px;
+    }
+    .feed__section__top{
+      background-size: 200px;
+      padding-bottom: 30px;
+    }
+    .base-slider__around__icon-chevron-thin-right{
+      right: -18px;
+    }
+    .base-slider .slick-initialized .slick-slide{
+      padding: 15px 10px;
+    }
+    .feed__section__spot__around__title,
+    .feed__section__spot__around__film__name{
+      font-size: 30px;
+    }
+    .feed__section__spot__around__film__img{
+      max-width: 205px;
+    }
+    .feed__section__spot__around {
+      grid-template-rows: auto auto 310px;
+    }
+    .feed__section__spot__around__map__text{
+      bottom: 0;
+    }
+    .feed__section__bottom__oval {
+      top: 106px;
+      width: 300px;
+      height: 300px;
+    }
+  }
 </style>

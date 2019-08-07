@@ -25,7 +25,8 @@ export default {
 <style lang="scss">
 
 .gallery-top {
-  max-width: 1200px;
+  max-width: 1230px;
+  padding: 0 15px;
   margin: 0 auto 29px auto;
   display: grid;
   grid-template-rows: 155px 155px;
@@ -57,7 +58,8 @@ export default {
   }
 }
 .gallery-bottom {
-  max-width: 1200px;
+  max-width: 1230px;
+  padding: 0 15px;
   margin: 0 auto 29px auto;
   display: grid;
   grid-template-rows: 155px 155px;

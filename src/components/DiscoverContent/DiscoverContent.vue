@@ -47,13 +47,13 @@ export default {
 
 <style lang="scss">
   .discover-content {
-
-     &__videoList {
-       width: 100%;
-       max-width: 1200px;
-       margin: 57px auto 0 auto;
-       display: flex;
-       justify-content: space-between;
+    &__videoList {
+      width: 100%;
+      max-width: 1230px;
+      padding: 0 15px;
+      margin: 57px auto 0 auto;
+      display: flex;
+      justify-content: space-between;
 
        .video-card {
          flex: 0 0 370px;

@@ -9,9 +9,11 @@
         <p class="discover__dropDown__genres__item">Sort by genres</p>
       </div>
     </div>
-    <discover-content
-      v-for="page in pages"
-      :page="page"/>
+    <div class="discover__content-cover">
+      <discover-content
+              v-for="page in pages"
+              :page="page"/>
+    </div>
     <div class="discover__more">
       <button class="discover__more_button" @click="loadMore()">
         Load more
@@ -45,20 +47,35 @@ export default {
         videoList,
         gallery
       })
+      this.winWidth()
+    },
+    winWidth () {
+      const windowWidth = window.innerWidth
+      if (windowWidth > 575 && windowWidth < 769) {
+        this.pages[0].videoList = this.pages[0].videoList.slice(0, 2)
+      } else if (windowWidth < 575) {
+        this.pages[0].videoList = this.pages[0].videoList.slice(0, 1)
+      } else {
+        this.pages[0].videoList = this.pages[0].videoList.slice(0, 3)
+      }
     }
   }
 }
 </script>
 
 <style lang="scss">
-
+  @import "../assets/scss/base";
   .discover {
     background: #f7f8fa;
 
+    &__content-cover {
+      min-height: calc(100vh - 403px);
+    }
+
     &__dropDown {
-      padding: 30px 0 0 0;
+      padding: 30px 15px 0 15px;
       width: 100%;
-      max-width: 1200px;
+      max-width: 1230px;
       margin: 0 auto;
       display: flex;
 
@@ -117,5 +134,109 @@ export default {
       }
     }
   }
-
+  @include lg() {
+    .discover-content__videoList .video-card {
+      flex: 0 0 31%;
+    }
+    .video-card__bottom_info p{
+      font-size: 13px;
+    }
+  }
+  @include md() {
+    .discover-content__videoList .video-card .video-gif {
+      height: 156px;
+    }
+    .discover-content__videoList .video-card__top {
+      padding: 0 10px;
+    }
+    .discover-content__videoList .video-card__top_name p {
+      font-size: 12px;
+      padding-left: 10px;
+    }
+    .video-card__avatar {
+      width: 45px;
+      height: 45px;
+    }
+    .video-card__top h6,
+    .video-card__comment p{
+      font-size: 13px;
+    }
+    .video-card__bottom_info p{
+      padding: 5px 0px;
+    }
+    .discover-content__videoList .video-card__bottom_title {
+      flex: 0 0 100%;
+    }
+    .video-card__bottom_title p{
+      font-size: 20px;
+      background-size: 27px;
+    }
+    .discover-content__videoList .video-card__bottom {
+      width: calc(100% - 20px);
+      padding: 5px 0;
+    }
+    .discover-content__videoList .video-card__bottom_info div:first-child{
+      flex-direction: column;
+    }
+    .video-card__bottom_info{
+      text-align: center;
+    }
+    .discover-content__videoList .video-card__comment {
+      padding: 13px 10px 0 10px;
+    }
+    .video-card__comment_links a img{
+      width: 25px;
+    }
+    .gallery-top,
+    .gallery-bottom{
+      grid-template-columns: 35% 30%;
+    }
+  }
+  @include sm() {
+    .gallery-top,
+    .gallery-bottom {
+      grid-template-rows: 100px 100px;
+    }
+    .discover-content__videoList .video-card {
+      flex: 0 0 48%;
+    }
+    .video-card__bottom_title p {
+      padding: 3px 0px 3px 39px;
+    }
+    .discover-content__videoList .video-card__bottom{
+      flex: inherit;
+    }
+  }
+  @include xs() {
+    .discover__dropDown{
+      justify-content: center;
+      &__year,
+      &__genres{
+        padding: 10px 5px;
+        font-size: 14px;
+        flex: 1;
+        max-width: 170px;
+      }
+      &__genres{
+        margin-right: 0;
+      }
+    }
+    .discover-content__videoList .video-card {
+      flex: 0 0 100%;
+      max-width: 366px;
+      margin: 0 auto 35px auto;
+    }
+    .discover-content__videoList{
+      margin: 30px auto 0 auto;
+    }
+    .gallery-top,
+    .gallery-bottom {
+      grid-template-rows: 50px 50px;
+      grid-template-columns: 31% 26%;
+      grid-gap: 7px 10px;
+    }
+    .gallery-top{
+      margin-bottom: 10px;
+    }
+  }
 </style>

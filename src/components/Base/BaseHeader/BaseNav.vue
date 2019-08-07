@@ -57,10 +57,10 @@ export default {
   }
 
   .base-nav {
-    max-width: 1200px;
+    max-width: 1230px;
     width: 100%;
     margin: 0 auto;
-    padding: 21px 0;
+    padding: 21px 15px;
 
     &__list {
       padding: 0;

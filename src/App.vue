@@ -7,6 +7,7 @@
 </template>
 
 <style lang="scss">
+  @import "assets/scss/base";
   @font-face {
     font-family: "icomoon";
     src: url("./assets/fonts/icomoon/icomoon.eot");
@@ -85,18 +86,52 @@
   *{
     box-sizing: border-box;
   }
-  body {
+  body,
+  html{
+    overflow-x: hidden;
     margin: 0;
   }
-
-  /*#app {*/
-
-  /*}*/
-
-  @media screen and (min-width: 320px) and (max-width: 1199px) {
-    .friends-page__body {
-      justify-content: center;
+  @include md() {
+    .base-header__search{
+      padding-left: 40px;
     }
+    .base-header__nav__link{
+      padding-right: 30px;
+    }
+  }
+  @include sm() {
+    .base-header{
+      justify-content: center;
+      flex-direction: column;
+      &__search {
+        padding:10px 0;
+      }
+      &__nav__link__last {
+        padding-right: 0;
+      }
+    }
+    .base-footer {
+      padding: 25px 15px;
+
+      &__list__link {
+        font-size: 12px;
+      }
+
+      &__list__title {
+        padding-top: 10px;
+      }
+    }
+  }
+  @include xs() {
+    .base-footer__item {
+      flex-basis: 50%;
+    }
+    .base-footer__list__title{
+      padding: 20px 0 10px 0;
+      font-size: 14px;
+    }
+  }
+  @media screen and (min-width: 320px) and (max-width: 1199px) {
     .base-slider__around__slick__img{
       height: auto;
     }

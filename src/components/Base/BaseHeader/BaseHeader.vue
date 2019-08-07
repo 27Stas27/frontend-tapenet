@@ -53,7 +53,7 @@ export default {
       default: 'Search for titles, people, genres'
     }
   },
-  methods:{
+  methods: {
     search (e) {
       this.$root.$emit('BaseHeaderSearchUpdate', e.target.value)
     }
@@ -64,10 +64,10 @@ export default {
 <style lang="scss">
 
   .base-header {
-    max-width: 1200px;
+    max-width: 1230px;
     width: 100%;
     margin: 0 auto;
-    padding: 29px 0 21px 0;
+    padding: 29px 15px 21px 15px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

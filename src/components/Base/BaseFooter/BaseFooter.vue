@@ -1,6 +1,6 @@
 <template>
   <footer class="base-footer">
-    <div>
+    <div class="base-footer__item">
       <ul class="base-footer__list">
         <li class="base-footer__list__title">
           COMPANY
@@ -27,7 +27,7 @@
         </li>
       </ul>
     </div>
-    <div>
+    <div class="base-footer__item">
       <ul class="base-footer__list">
         <li class="base-footer__list__title">
           ME
@@ -49,7 +49,7 @@
         </li>
       </ul>
     </div>
-    <div>
+    <div class="base-footer__item">
       <ul class="base-footer__list">
         <li class="base-footer__list__title">
           CONTACT
@@ -76,7 +76,7 @@
         </li>
       </ul>
     </div>
-    <div>
+    <div class="base-footer__item">
       <ul class="base-footer__list">
         <li class="base-footer__list__title">
           TALK TO SALES
@@ -93,7 +93,7 @@
         </li>
       </ul>
     </div>
-    <div>
+    <div class="base-footer__item">
       <ul class="base-footer__list">
         <li class="base-footer__list__title">
           © 2017 Shkodran Arifi
@@ -124,8 +124,8 @@ export default {
 
   .base-footer {
     width: 100%;
-    max-width: 1200px;
-    padding: 125px 0;
+    max-width: 1230px;
+    padding: 125px 15px;
     margin: 0 auto;
     display: flex;
     align-items: flex-start;
